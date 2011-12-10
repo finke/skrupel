@@ -1,6 +1,6 @@
 <?php
 defined('EXTENSION') or die();
-
-class myAddon extends ScrupelAddon{
+require_once 'inhalt/classes/class.skrupelAddon.php';
+class myAddon extends SkrupelAddon{
 
 }
