@@ -27,9 +27,9 @@ private $_extensions = array();
 *
 *
 */
-  public function trip_a_event($name){
+  public function trip_event($name){
 	foreach($this->_extensions as $extension){
-	  $extension->trip_a_event($name);
+	  $extension->trip_event($name);
 	}
   }
 }
