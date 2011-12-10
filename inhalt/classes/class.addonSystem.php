@@ -15,7 +15,7 @@ private $_extensions = array();
     foreach($ext as $dir){
       if(is_dir($path.$dir) && file_exist($path.$dir.'/include.php')){
       include $path.$dir.'/include.php';
-	  $this->_extensions[] = new $dir;
+	  if(is_subclass_of($dir, 'SkrupelAddon')) $this->_extensions[] = new $dir;
     }
   }
 }
