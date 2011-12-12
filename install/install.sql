@@ -591,29 +591,29 @@ CREATE TABLE `{skrupel_db.sternenbasen}` (
     UNIQUE KEY id (id)
 ) ENGINE=MyISAM;
 
-CREATE TABLE {skrupel_db.user} (
-  id int(11) NOT NULL auto_increment,
-  nick varchar(30) NOT NULL default '',
-  passwort varchar(64) NOT NULL default '',
-  salt varchar(16) NOT NULL default '',
-  email varchar(255) NOT NULL default '',
-  uid varchar(20) NOT NULL default '',
-  icq varchar(20) NOT NULL default '',
-  jabber varchar(255) NOT NULL default '',
-  homepage tinytext NOT NULL,
-  optionen varchar(255) NOT NULL default '',
-  chatfarbe varchar(6) NOT NULL default 'ffffff',
-  stat_teilnahme int(11) NOT NULL default '0',
-  stat_sieg int(11) NOT NULL default '0',
-  stat_schlacht int(11) NOT NULL default '0',
-  stat_schlacht_sieg int(11) NOT NULL default '0',
-  stat_kol_erobert int(11) NOT NULL default '0',
-  stat_lichtjahre bigint(20) NOT NULL default '0',
-  stat_monate int(11) NOT NULL default '0',
-  bildpfad varchar(255) NOT NULL default '',
-  avatar varchar(255) NOT NULL default '',
-  sprache varchar(255) NOT NULL default '$language',
-  PRIMARY KEY (id)
+CREATE TABLE `{skrupel_db.user}` (
+	    id int(11) NOT NULL auto_increment,
+	    nick varchar(30) NOT NULL default '',
+	    passwort varchar(64) NOT NULL default '',
+		salt varchar(16) NOT NULL default '',
+	    email varchar(255) NOT NULL default '',
+	    uid varchar(20) NOT NULL default '',
+	    icq varchar(20) NOT NULL default '',
+	    jabber varchar(255) NOT NULL default '',
+        homepage tinytext NOT NULL,
+	    optionen varchar(255) NOT NULL default '',
+	    chatfarbe varchar(6) NOT NULL default 'ffffff',
+	    stat_teilnahme int(11) NOT NULL default '0',
+	    stat_sieg int(11) NOT NULL default '0',
+	    stat_schlacht int(11) NOT NULL default '0',
+	    stat_schlacht_sieg int(11) NOT NULL default '0',
+	    stat_kol_erobert int(11) NOT NULL default '0',
+	    stat_lichtjahre bigint(20) NOT NULL default '0',
+	    stat_monate int(11) NOT NULL default '0',
+	    bildpfad varchar(255) NOT NULL default '',
+	    avatar varchar(255) NOT NULL default '',
+	    sprache varchar(255) NOT NULL default '$language',
+	    PRIMARY KEY (id)
 ) ENGINE=MyISAM;
 
 CREATE TABLE `{skrupel_db.konplaene}` (

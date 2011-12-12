@@ -111,6 +111,7 @@ define('WITH_NUMBERS', 1);
 */
 define('WITH_SPECIAL_CHARACTERS', 2);
 /**
+
 *generate a random String
 *
 *Generiert einen Zufallsstring nach Vorgaben (Laenge + Beinhaltende Zeichen)
@@ -119,7 +120,8 @@ define('WITH_SPECIAL_CHARACTERS', 2);
 *@param int $type Ein Wert welche Zeichen enthalten sien duerfen
 *@return string der Zufallsstrig
 */
-function zufallstring($size = 20, $type = ONLY_LETTERS){
+
+function zufallstring($size = 20, $url = ONLY_LETTERS){
   mt_srand();
   $pool = 'abcdefghijklmnopqrstuvwxyz';
   $pool .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -129,6 +131,7 @@ function zufallstring($size = 20, $type = ONLY_LETTERS){
   if($url & WITH_NUMBERS){
     $pool .='0123456789';
   }
+  $pool = str_shuffle($pool);
   $pool_size = strlen($pool);
   $salt ='';
   for($i = 0;$i<$size; $i++){
@@ -138,17 +141,17 @@ function zufallstring($size = 20, $type = ONLY_LETTERS){
 }
 
 /**
-* hast a password + salt with sha256
+* erzeugt einen Passworthash aus password + salt mit sha256
 *
-* Hast ein Passwort, unter verwendung eines salts. Beim Erstellen eines Hash zur Speicherung leer lassen, beim abgleich muss der Salt aus der DB genommen werden, um identiche ergebnisse zu erhalten 	
-*@author finke
+* Hasht ein Passwort, unter verwendung eines salts. Beim Erstellen eines Hash zur Speicherung leer lassen, beim abgleich muss der Salt aus der DB genommen werden, um identiche ergebnisse zu erhalten
+*@autor finke 	
 *@param string $passwd Zu hashendes Passwort
 *@param string $salt der zum hashen verwendet werden soll
 *@return string Passwort hash und salt durch ein : getrennt; Achtung: immer nur nach dem ersten : trennen. Im Hash selber kann keines vorkommen, im Salt schon. BSP: explode(':',cryptPasswd('Mein Passwort'), 2);
 */
 function cryptPasswd($passwd, $salt = ''){
 	if(strlen($salt) < 16)
-		$salt = zufallstring(16, WITH_NUMBERS & WITH_SPECIAL_CHARACTERS);
+		$salt = zufallstring(16, WITH_NUMBERS | WITH_SPECIAL_CHARACTERS);
 	$passwd = hash('sha256',$passwd.$salt).':'.$salt;
 	return $passwd;
 }
