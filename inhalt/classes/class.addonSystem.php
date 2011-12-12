@@ -1,6 +1,6 @@
 <?php
 class AddonSystem{
-private $_ext_path = dirname(__file__).'/../../extend/';
+private $_ext_path = dirname(__FILE__).'/../../extend/';
 private $_extensions = array();
 
 /**
