@@ -645,3 +645,11 @@ CREATE TABLE `{skrupel_db.begegnung}` (
     PRIMARY KEY (id)
 ) ENGINE=MyISAM;
 
+CREATE TABLE `{skrupel_db.addons}` (
+    id INT NOT NULL AUTO_INCREMENT,
+    name varchar(50) NOT NULL,
+	class_name varchar(25) NOT NULL
+    aktiv BOOLEAN NOT NULL default 0,
+    PRIMARY KEY (id)
+) ENGINE=MyISAM;
+

@@ -64,7 +64,8 @@ padding:15px;
 'info'=>$skrupel_info,
 'ordner'=>$skrupel_ordner,
 'scan'=>$skrupel_scan,
-'begegnung'=>$skrupel_begegnung
+'begegnung'=>$skrupel_begegnung,
+'addons'=>$skrupel_addons
 );
   require_once ('../inhalt/inc.hilfsfunktionen.php');
   $installed = false;
