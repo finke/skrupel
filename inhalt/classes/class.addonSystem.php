@@ -2,6 +2,7 @@
 class AddonSystem{
 private $_ext_path = dirname(__FILE__).'/../../addons/';
 private $_extensions = array();
+define('ADDON', '');
 
 /**
 *Startet das Addonsystem
