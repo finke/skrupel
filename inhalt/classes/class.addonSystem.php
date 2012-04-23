@@ -14,8 +14,8 @@ define('ADDON', '');
   public function __construct(){
     $ext = scandir($path);
     foreach($ext as $dir){
-      if(is_dir($path.$dir) && file_exist($path.$dir.'/include.php')){
-      include $path.$dir.'/include.php';
+      if(is_dir($path.$dir) && file_exist($path.$dir.'/config.txt') && file_exist($path.$dir.'/main.php')){
+      include $path.$dir.'/main.php';
 	  if(is_subclass_of($dir, 'SkrupelAddon')) $this->_extensions[] = new $dir;
     }
   }
@@ -28,9 +28,9 @@ define('ADDON', '');
 *
 *
 */
-  public function trip_event($name){
+  public function trip_event($name, $options=null, &$lambda =NULL){
 	foreach($this->_extensions as $extension){
-	  $extension->trip_event($name);
+	  return $extension->trip_event($name, $options, &$lambda);
 	}
   }
 }
